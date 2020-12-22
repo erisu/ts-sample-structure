@@ -1,0 +1,34 @@
+{
+  "name": "ts-sample-structure",
+  "version": "0.0.1",
+  "description": "TypeScript Sample Structure Project",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "postinstall": "node scripts/postinstall.js",
+    "prepack": "npm run build && node scripts/prepack.js",
+    "postpack": "node scripts/postpack.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erisu/ts-sample-structure.git"
+  },
+  "keywords": [
+    "typescript",
+    "ts",
+    "javascript",
+    "js",
+    "npm",
+    "node"
+  ],
+  "author": "erisu",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/erisu/ts-sample-structure/issues"
+  },
+  "homepage": "https://github.com/erisu/ts-sample-structure#readme",
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  }
+}
