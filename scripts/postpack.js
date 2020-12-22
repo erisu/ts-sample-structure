@@ -1,22 +1,20 @@
 const { join, resolve } = require('path');
 const { copyFileSync, rmdirSync } = require('fs');
 
-const comment = '// Empty Script: Does Nothing\n';
+const scripts = resolve(__dirname, '../');
+const tmpdir = join(scripts, '.package');
 
-const eraseFiles = [
+const targetFiles = [
   'postinstall.js',
   'prepack.js',
   'postpack.js'
 ];
 
-const scripts = resolve(__dirname, '../scripts');
-const tmpdir = join(scripts, '.package');
-
 // copy to tmpdir
-eraseFiles.forEach(file => {
-  copyFileSync(join(tmpdir, file), resolve(scripts, file));
+targetFiles.forEach(file => {
+  // move original files back to scripts.
+  copyFileSync(join(tmpdir, file), join(scripts, file));
 });
 
-rmdirSync(tmpdir, {
-  recursive: true
-});
+// cleanup
+rmdirSync(tmpdir, { recursive: true });
